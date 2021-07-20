@@ -6,7 +6,9 @@
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
-    "generate": "nuxt generate"
+    "generate": "nuxt generate",
+    "gen-subdomain": "DEPLOY_ENV=WITH_SUBFOLDER nuxt generate",
+    "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup"
   },
   "dependencies": {
     "@fortawesome/free-solid-svg-icons": "^5.15.3",
@@ -19,5 +21,7 @@
     "nuxt": "^2.15.7",
     "vue-chartjs": "^3.5.1"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "push-dir": "^0.4.1"
+  }
 }
