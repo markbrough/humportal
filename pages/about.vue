@@ -1,0 +1,138 @@
+<template>
+  <b-container>
+    <b-row>
+      <b-col md="12">
+        <h1>The Grand Bargain transparency commitment</h1>
+        <h2>What is the Grand Bargain?</h2>
+        <p>The <a href="https://interagencystandingcommittee.org/grand-bargain-hosted-iasc" target="_blank">‘Grand Bargain’</a> is an agreement made by humanitarian donors and aid organisations to improve the effectiveness and efficiency of humanitarian action in order to get more means into the hands of people in need. It sets out 51 commitments, organised by thematic workstream areas: transparency; greater funding for local and national response; cash-based programming; reduced management costs; joint needs assessments; participation revolution; quality funding (earmarking and multiyear); and harmonising and simplifying reporting requirements. Enhancing engagement between humanitarian and development actors is an additional cross-cutting theme.</p>
+        <p>The Grand Bargain was officially launched at the World Humanitarian Summit in May 2016. As at July 2019, there are 90 signatory organisations. </p>
+        <p><a href="https://www.odi.org/publications/11387-grand-bargain-annual-independent-report-2019" target="_blank">Progress on the Grand Bargain</a> is monitored by the Humanitarian Policy Group (HPG) at the Overseas Development Institute (ODI). HPG/ODI work on behalf of the Grand Bargain Facilitation Group to produce annual independent reviews of progress made against the commitments. Progress is measured through interviews and self-reports (see terms of reference at the back of the <a href="https://www.odi.org/publications/11387-grand-bargain-annual-independent-report-2019" target="_blank">third annual independent review for details</a>).</p>
+        <h2>What is the Grand Bargain transparency commitment?</h2>
+        <p> There are four parts to the <a href="https://interagencystandingcommittee.org/greater-transparency" target="_blank">transparency commitment</a>. Signatories agreed to: </p>
+        <ul>
+          <li><b>1.1</b> Publish timely, transparent, harmonised and open high-quality data on humanitarian funding within two years of the World Humanitarian Summit in Istanbul. [IATI was considered to provide a basis for the purpose of a common standard.]</li>
+          <li><b>1.2</b> Make use of appropriate data analysis, explaining the distinctiveness of activities, organisations, environments and circumstances (for example, protection, conflict-zones). [Taken to mean the data published via IATI.]</li>
+          <li><b>1.3</b> Improve the digital platform [ taken to mean a ‘system of systems’] and engage with the open-data standard community to help ensure:</li>
+          <ul>
+            <li>accountability of donors and responders with open data for retrieval and analysis;</li>
+            <li>improvements in decision-making, based upon the best possible information;</li>
+            <li>a reduced workload over time as a result of donors accepting common standard data for some reporting purposes;</li>
+            <li>traceability of donor funding throughout the transaction chain as far as the final responders and, where feasible, affected people.</li>
+          </ul>
+          <li><b>1.4</b> Support the capacity of all partners to access and publish data.</li>
+        </ul>
+        <p>Each of the Grand Bargain thematic areas (‘workstreams’) has a core commitment, corresponding indicators and target results. <a href="http://devinit.org/post/projects/monitoring-grand-bargain-commitment-transparency/" target="_blank">Development Initiatives</a> monitors progress against the transparency <a href="https://interagencystandingcommittee.org/greater-transparency" target="_blank">core commitments</a> as part of its programme of work to support the workstream co-convenors—the Netherlands Ministry of Foreign Affairs and the World Bank Group. </p>
+        <h2>What is IATI and why is it part of the transparency commitment?</h2>
+        <p>Launched in 2008, the <a href="https://iatistandard.org/en/" target="_blank">International Aid Transparency Initiative</a> (IATI) is a multi-stakeholder initiative and an international open data standard that aims to improve the transparency and openness of both development and humanitarian activities. IATI provides a mechanism for the regular, automated publication of open data on financial flows and also enables organisations to publish information on their project or programming activities, including information on monitoring, evaluation and results. When combined with different data, such as needs assessments and more contextual analysis, this kind of open information has the potential to drive better decision-making.</p>
+        <p>IATI aims to standardise and automate the exchange of data – it is not a ‘system’ or platform. It does not curate data, nor does it provide ‘statistics’, aggregation or analysis. It is a format that publishers can save their data to. This creates a pool of open data, in machine-readable format, that others can contribute to, draw on and use—perhaps most notably via visualisations, dashboards, tools and platforms, which will read and display the data. The actual content and quality of what is available through IATI depends on what publishing organisations are able or prepared to contribute.</p>
+        <p>Overall, 1000+ <a href="https://www.iatiregistry.org/publisher" target="_blank">humanitarian and development organisations</a>, including government donors, multilateral and UN agencies and international and local NGOs currently use the IATI Standard to publish information on who funds them, where the money goes and the impact or outcome of their activities.</p>
+      </b-col>
+    </b-row>
+  </b-container>
+</template>
+
+<script>
+
+import { mapState } from 'vuex'
+import DecorationLanding from '~/components/DecorationLanding.vue'
+export default {
+  components: {
+    DecorationLanding
+  },
+  data() {
+    return {
+      busy: true,
+      signatoryFields: [
+        {
+          key: 'name',
+          label: 'Name',
+          sortable: true
+        },
+        {
+          key: 'gbSignatory',
+          label: 'GB Signatory',
+          sortable: true
+        },
+        {
+          key: 'organisationType',
+          label: 'Organisation Type',
+          sortable: true
+        },
+        {
+          key: 'iatiVersion',
+          label: 'Latest IATI Version',
+          sortable: true
+        },
+        {
+          key: 'humData',
+          label: 'Publishing hum. data?',
+          sortable: true
+        },
+        {
+          key: '202HumData',
+          label: 'Publishing v2.02 hum.data?',
+          sortable: true
+        },
+        {
+          key: '203HumData',
+          label: 'Publishing v2.03 hum.data?',
+          sortable: true
+        },
+        {
+          key: 'traceability',
+          label: 'Incoming trans traceability',
+          sortable: true
+        },
+        {
+          key: 'monthly',
+          label: 'Publishing to IATI at least monthly',
+          sortable: true
+        },
+      ]
+    }
+  },
+  computed: mapState(['signatoryData']),
+  async mounted() {
+    await this.$store.dispatch('loadSignatoryData')
+    this.busy = false
+  }
+}
+</script>
+<style>
+.stat-description {
+  font-weight: bold;
+}
+.stat {
+  margin-top: 10px;
+  font-size: 64px;
+  font-weight: 600;
+}
+.red-color {
+  color:  #ed6060;
+}
+.blue-color {
+  color:  #6e5acc;
+}
+.green-color {
+  color:  #59CCBF;
+}
+.jumbotron h3 {
+  color: #59CCBF;
+}
+.overflow-none {
+  overflow:  hidden;
+}
+.highlight {
+  color: white;
+  background: rgb(90, 204, 191);
+  padding-left: 5px;
+  padding-right: 5px;
+}
+.jumbotron h1 {
+  line-height: 1.2;
+  font-size: 3.6418rem;
+  font-family: Inter;
+  font-weight: 500;
+  letter-spacing: -0.5px;
+}
+</style>
