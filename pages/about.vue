@@ -33,106 +33,15 @@
 
 <script>
 
-import { mapState } from 'vuex'
-import DecorationLanding from '~/components/DecorationLanding.vue'
 export default {
   components: {
-    DecorationLanding
   },
   data() {
     return {
-      busy: true,
-      signatoryFields: [
-        {
-          key: 'name',
-          label: 'Name',
-          sortable: true
-        },
-        {
-          key: 'gbSignatory',
-          label: 'GB Signatory',
-          sortable: true
-        },
-        {
-          key: 'organisationType',
-          label: 'Organisation Type',
-          sortable: true
-        },
-        {
-          key: 'iatiVersion',
-          label: 'Latest IATI Version',
-          sortable: true
-        },
-        {
-          key: 'humData',
-          label: 'Publishing hum. data?',
-          sortable: true
-        },
-        {
-          key: '202HumData',
-          label: 'Publishing v2.02 hum.data?',
-          sortable: true
-        },
-        {
-          key: '203HumData',
-          label: 'Publishing v2.03 hum.data?',
-          sortable: true
-        },
-        {
-          key: 'traceability',
-          label: 'Incoming trans traceability',
-          sortable: true
-        },
-        {
-          key: 'monthly',
-          label: 'Publishing to IATI at least monthly',
-          sortable: true
-        },
-      ]
     }
-  },
-  computed: mapState(['signatoryData']),
-  async mounted() {
-    await this.$store.dispatch('loadSignatoryData')
-    this.busy = false
   }
 }
 </script>
 <style>
-.stat-description {
-  font-weight: bold;
-}
-.stat {
-  margin-top: 10px;
-  font-size: 64px;
-  font-weight: 600;
-}
-.red-color {
-  color:  #ed6060;
-}
-.blue-color {
-  color:  #6e5acc;
-}
-.green-color {
-  color:  #59CCBF;
-}
-.jumbotron h3 {
-  color: #59CCBF;
-}
-.overflow-none {
-  overflow:  hidden;
-}
-.highlight {
-  color: white;
-  background: rgb(90, 204, 191);
-  padding-left: 5px;
-  padding-right: 5px;
-}
-.jumbotron h1 {
-  line-height: 1.2;
-  font-size: 3.6418rem;
-  font-family: Inter;
-  font-weight: 500;
-  letter-spacing: -0.5px;
-}
+
 </style>
