@@ -3,7 +3,7 @@
     <b-row>
       <b-col md="12">
         <h1>Signatory Progress</h1>
-        <p class="lead">The Grand Bargain transparency workstream uses the following IATI publishing indicators for the workstream <a href="https://www.humportal.org/signatory-progress/cctri-target">Core Commitment Target Results & Indicators (CCTRIs)</a>.The aim of these indicators is to track the improvement in the quality and usability of the IATI data published by the Grand Bargain signatories.</p>
+        <p class="lead">The Grand Bargain transparency workstream uses the following IATI publishing indicators for the workstream <nuxt-link :to="{name: 'signatory-progress-cctri-target'}">Core Commitment Target Results & Indicators (CCTRIs)</nuxt-link>.The aim of these indicators is to track the improvement in the quality and usability of the IATI data published by the Grand Bargain signatories.</p>
         <h2>Data publication aggregated signatory progress</h2>
         <SignatoryProgressLineChart
           :signatory-progress-data="signatoryProgressData"
