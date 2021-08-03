@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import axios from 'axios'
 
-const baseURL = 'https://brough.io/humportal/'
+const baseURL = 'https://humportal.org/'
 
 export const state = () => ({
   stats: {
