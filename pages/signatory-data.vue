@@ -10,6 +10,8 @@
           :fields="signatoryFields"
           :items="signatoryData"
           :busy="busy"
+          sticky-header="45vh"
+          responsive
           >
             <template #table-busy>
               <div class="text-center text-muted my-2">
@@ -83,7 +85,7 @@ export default {
         },
         {
           key: 'monthly',
-          label: 'Publishing to IATI at least monthly',
+          label: 'Publishing to IATI monthly',
           sortable: true
         },
       ]
