@@ -2,6 +2,7 @@ import Vue from 'vue'
 import axios from 'axios'
 
 const baseURL = 'https://humportal.org/'
+const apiURL = 'https://brough.io/humportal-data/'
 
 export const state = () => ({
   stats: {
@@ -31,7 +32,7 @@ export const actions = {
       return true
     }
     const { data } = await axios
-      .get(`${baseURL}/output/homepage.json`)
+      .get(`${apiURL}/homepage.json`)
     commit("setHomepageStats", data)
   },
   async loadSignatoryData({ commit, state }) {
@@ -39,7 +40,7 @@ export const actions = {
       return true
     }
     const { data } = await axios
-      .get(`${baseURL}/output/signatories.json`)
+      .get(`${apiURL}/signatories.json`)
     commit("setSignatoryData", data)
   },
   async loadSignatoryProgressData({ commit, state }) {
@@ -47,7 +48,7 @@ export const actions = {
       return true
     }
     const { data } = await axios
-      .get(`${baseURL}/output/signatories-progress.json`)
+      .get(`${apiURL}/signatories-progress.json`)
     commit("setSignatoryProgressData", data)
   }
 }
