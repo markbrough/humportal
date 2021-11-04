@@ -6,6 +6,9 @@ const routerBase = process.env.DEPLOY_ENV === 'WITH_SUBFOLDER' ? {
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
+  generate: {
+    fallback: true
+  },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
