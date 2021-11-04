@@ -3,6 +3,7 @@ import axios from 'axios'
 
 const baseURL = 'https://humportal.org/'
 const apiURL = 'https://brough.io/humportal-data/'
+const analyticsURL = 'https://stats.codeforiati.org'
 
 export const state = () => ({
   stats: {
@@ -11,7 +12,8 @@ export const state = () => ({
     humanitarian: null
   },
   signatoryData: [],
-  signatoryProgressData: []
+  signatoryProgressData: [],
+  analyticsURL: analyticsURL
 })
 
 export const mutations = {
