@@ -4,13 +4,12 @@
       <b-col md="12">
         <h1>Signatory IATI data</h1>
         <p class="lead">This page provides an overview of the IATI ('open') data currently published by individual Grand Bargain signatories and/or their affiliated organisations. Its primary purpose is to enable signatories to monitor their own progress in relation to meeting the data publication commitment of the Grand Bargain.</p>
-        <p class="lead">Each column in the table relates to a specific IATI publishing indicator as defined within the workstream <a href="http://gbtransparency.org/dashboard/datapubindicators.html">core commitment target results and indicators (CCTRIs)</a>.</p>
+        <p class="lead">Each column in the table relates to a specific IATI publishing indicator as defined within the workstream <nuxt-link :to="{name: 'signatory-progress-cctri-target'}">Core Commitment Target Results & Indicators (CCTRIs)</nuxt-link>.</p>
         <h2>Signatories or their affiliate organisations</h2>
         <b-table
           :fields="signatoryFields"
           :items="signatoryData"
           :busy="busy"
-          sticky-header="45vh"
           responsive
           >
             <template #table-busy>
