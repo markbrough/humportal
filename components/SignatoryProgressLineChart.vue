@@ -75,7 +75,8 @@ export default {
               }
             },
             scaleLabel: {
-              display: false
+              display: true,
+              labelString: '% of Signatories or IATI publishers'
             },
             gridLines: {
               display: true
