@@ -18,6 +18,16 @@
                 <strong>Loading...</strong>
               </div>
             </template>
+            <template #cell(name)="data">
+              <template v-if="data.item.iatiOrganisationID">
+                <nuxt-link :to="{name: 'signatory-data-id', params: {id: data.item.iatiOrganisationID}}">
+                  {{ data.value }}
+                </nuxt-link>
+              </template>
+              <template v-else>
+                {{ data.value }}
+              </template>
+            </template>
             <template v-slot:[colName]="data" v-for="colName in [
               'cell(humData)', 'cell(202HumData)', 'cell(203HumData)',
               'cell(traceability)', 'cell(monthly)']">
