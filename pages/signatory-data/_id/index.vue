@@ -52,25 +52,25 @@
         </b-row>
         <b-row>
           <b-col md="3">
-            <h4>Humanitarian</h4>
+            <h4>Humanitarian <span v-b-tooltip.hover :title="titles.humanitarian"><font-awesome-icon :icon="['fas', 'info-circle']" /></span></h4>
             <SummaryPieChart
               :labels="['Not humanitarian', 'Humanitarian']"
               :data="[this.activities-this.humanitarian.is_humanitarian, this.humanitarian.is_humanitarian]"></SummaryPieChart>
           </b-col>
           <b-col md="3">
-            <h4>GLIDE codes</h4>
+            <h4>GLIDE codes <span v-b-tooltip.hover :title="titles.glide_codes" ><font-awesome-icon :icon="['fas', 'info-circle']" /></span></h4>
             <SummaryPieChart
               :labels="['No GLIDE codes', 'GLIDE codes']"
               :data="[this.activities-this.humanitarian.uses_humanitarian_glide_codes, this.humanitarian.uses_humanitarian_glide_codes]"></SummaryPieChart>
           </b-col>
           <b-col md="3">
-            <h4>HRP codes</h4>
+            <h4>HRP codes <span v-b-tooltip.hover :title="titles.hrp_codes"><font-awesome-icon :icon="['fas', 'info-circle']" /></span></h4>
             <SummaryPieChart
               :labels="['No HRP codes', 'HRP codes']"
               :data="[this.activities-this.humanitarian.uses_humanitarian_hrp_codes, this.humanitarian.uses_humanitarian_hrp_codes]"></SummaryPieChart>
           </b-col>
           <b-col md="3">
-            <h4>Clusters</h4>
+            <h4>Clusters <span v-b-tooltip.hover :title="titles.humanitarian_clusters"><font-awesome-icon :icon="['fas', 'info-circle']" /></span></h4>
             <SummaryPieChart
               :labels="['No humanitarian clusters', 'Humanitarian clusters']"
               :data="[this.activities-this.humanitarian.uses_humanitarian_clusters_vocab, this.humanitarian.uses_humanitarian_clusters_vocab]"></SummaryPieChart>
@@ -87,19 +87,19 @@
         </b-row>
         <b-row>
           <b-col md="4">
-            <h4>Earmarking</h4>
+            <h4>Earmarking <span v-b-tooltip.hover :title="titles.earmarking"><font-awesome-icon :icon="['fas', 'info-circle']" /></span></h4>
             <SummaryPieChart
               :labels="['Unspecified', 'Uses earmarking classifications']"
               :data="[this.transactions-this.earmarking, this.earmarking]"></SummaryPieChart>
           </b-col>
           <b-col md="4">
-            <h4>Cash</h4>
+            <h4>Cash <span v-b-tooltip.hover :title="titles.cash"><font-awesome-icon :icon="['fas', 'info-circle']" /></span></h4>
             <SummaryPieChart
               :labels="['Unspecified', 'Uses cash classifications']"
               :data="[this.transactions-this.cash, this.cash]"></SummaryPieChart>
           </b-col>
           <b-col md="4">
-            <h4>Pledges</h4>
+            <h4>Pledges <span v-b-tooltip.hover :title="titles.pledges"><font-awesome-icon :icon="['fas', 'info-circle']" /></span></h4>
             <SummaryPieChart
               :labels="['Uses other transaction types', 'Uses pledge transaction types']"
               :data="[this.transactions-this.pledges, this.pledges]"></SummaryPieChart>
@@ -107,7 +107,7 @@
         </b-row>
         <b-row>
           <b-col md="6">
-            <h4>Traceability elements</h4>
+            <h4>Traceability elements <span v-b-tooltip.hover :title="titles.traceability"><font-awesome-icon :icon="['fas', 'info-circle']" /></span></h4>
             <SummaryPieChart
               :labels="['Transactions without traceability', 'Transactions with traceability']"
               :data="[this.traceableTransactions-this.traceability, this.traceableTransactions]"></SummaryPieChart>
@@ -137,7 +137,17 @@ export default {
       activities: null,
       humanitarian: {},
       codelist_values: {},
-      elements: {}
+      elements: {},
+      titles: {
+        humanitarian: "Whether the activity or transaction has a humanitarian marker.",
+        glide_codes: "Whether the activity uses any GLIDE Codes.",
+        hrp_codes: "Whether the activity uses any HRP Codes.",
+        humanitarian_clusters: "Whether the activity uses any humanitarian clusters.",
+        earmarking: "Whether the transaction states any information about earmarking (using the aid-type vocabularies 2 or 3).",
+        cash: "Whether the transaction states any information about cash (using the aid-type vocabulary 4).",
+        pledges: "Whether the transaction is a pledge (transaction types 12 or 13).",
+        traceability: "Whether the transaction contains the provider organisation’s activity identifier."
+      }
     }
   },
   computed: {
