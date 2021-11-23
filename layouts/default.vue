@@ -89,7 +89,11 @@ body {
     word-wrap: break-word;
 }
 img.logo {
-    height: 110px;
+    padding: 10px 10px 10px 20px;
+    height: 80px;
+}
+.navbar-primary {
+  margin-bottom: 20px;
 }
 .navbar-primary .navbar-nav .nav-item {
     margin-left: 40px;
