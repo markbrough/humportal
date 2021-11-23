@@ -110,7 +110,7 @@
             <h4>Traceability elements <span v-b-tooltip.hover :title="titles.traceability"><font-awesome-icon :icon="['fas', 'info-circle']" /></span></h4>
             <SummaryPieChart
               :labels="['Transactions without traceability', 'Transactions with traceability']"
-              :data="[this.traceableTransactions-this.traceability, this.traceableTransactions]"></SummaryPieChart>
+              :data="[this.traceableTransactions-this.traceability, this.traceability]"></SummaryPieChart>
           </b-col>
         </b-row>
       </template>
