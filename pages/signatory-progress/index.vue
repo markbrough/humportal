@@ -11,7 +11,16 @@
           :signatory-progress-fields="signatoryProgressFields"
            />
         <hr />
-        <h2>Signatories meeting data publication CCTRIs</h2>
+        <b-row class="mb-2">
+          <b-col lg="9">
+            <h2>Signatories meeting data publication CCTRIs</h2>
+          </b-col>
+          <b-col lg="3" class="text-lg-right">
+            <b-btn :href="signatoryProgressDataCSVURL" variant="primary">
+              <font-awesome-icon :icon="['fas', 'download']" /> Download CSV
+            </b-btn>
+          </b-col>
+        </b-row>
         <b-table
           :fields="signatoryProgressFields"
           :items="signatoryProgressData"
@@ -114,7 +123,11 @@ export default {
       ]
     }
   },
-  computed: mapState(['signatoryProgressData']),
+  computed: {
+    signatoryProgressDataCSVURL() {
+      return `${this.apiURL}/signatories-progress.csv`
+    },...mapState(['signatoryProgressData', 'apiURL'])
+  },
   methods: {
     makePercent(numerator, denominator) {
       if (isNaN(numerator)) { return '' }
