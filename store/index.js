@@ -13,6 +13,7 @@ export const state = () => ({
   },
   signatoryData: [],
   signatoryProgressData: [],
+  metadata: {},
   analyticsURL: analyticsURL,
   apiURL: apiURL
 })
@@ -26,6 +27,9 @@ export const mutations = {
   },
   setSignatoryProgressData(state, data) {
     state.signatoryProgressData = data
+  },
+  setMetadata(state, data) {
+    state.metadata = data
   }
 }
 
@@ -53,5 +57,13 @@ export const actions = {
     const { data } = await axios
       .get(`${apiURL}/signatories-progress.json`)
     commit("setSignatoryProgressData", data)
+  },
+  async loadMetadata({ commit, state }) {
+    if (Object.keys(state.metadata).length != 0) {
+      return true
+    }
+    const { data } = await axios
+      .get(`${apiURL}/metadata.json`)
+    commit("setMetadata", data)
   }
 }
