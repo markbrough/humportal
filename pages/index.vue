@@ -37,6 +37,11 @@
               <h4 class="stat green-color">{{ stats.humanitarian }}</h4>
             </b-col>
           </b-row>
+          <b-row>
+            <b-col>
+              <p class="text-muted font-italic">Last updated {{ lastUpdated }}</p>
+            </b-col>
+          </b-row>
         </b-jumbotron>
       </b-col>
       <b-col md="4" class="d-none d-md-inline overflow-none">
@@ -59,9 +64,15 @@ export default {
       busy: true
     }
   },
-  computed: mapState(['stats']),
+  computed: {
+    lastUpdated() {
+      const finishedDate = new Date(this.metadata.finished)
+      return `${finishedDate.toLocaleDateString(undefined, {})} ${finishedDate.toLocaleTimeString(undefined, {})}`
+    },...mapState(['stats', 'metadata'])
+  },
   async mounted() {
     await this.$store.dispatch('loadHomepageStats')
+    await this.$store.dispatch('loadMetadata')
     this.busy = false
   }
 }
