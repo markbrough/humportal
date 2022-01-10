@@ -5,7 +5,16 @@
         <h1>Signatory IATI data</h1>
         <p class="lead">This page provides an overview of the IATI ('open') data currently published by individual Grand Bargain signatories and/or their affiliated organisations. Its primary purpose is to enable signatories to monitor their own progress in relation to meeting the data publication commitment of the Grand Bargain.</p>
         <p class="lead">Each column in the table relates to a specific IATI publishing indicator as defined within the workstream <nuxt-link :to="{name: 'signatory-progress-cctri-target'}">Core Commitment Target Results & Indicators (CCTRIs)</nuxt-link>.</p>
-        <h2>Signatories or their affiliate organisations</h2>
+        <b-row class="mb-2">
+          <b-col lg="9">
+            <h2>Signatories or their affiliate organisations</h2>
+          </b-col>
+          <b-col lg="3" class="text-lg-right">
+            <b-btn :href="signatoryDataCSVURL" variant="primary">
+              <font-awesome-icon :icon="['fas', 'download']" /> Download CSV
+            </b-btn>
+          </b-col>
+        </b-row>
         <b-table
           :fields="signatoryFields"
           :items="signatoryData"
@@ -100,7 +109,11 @@ export default {
       ]
     }
   },
-  computed: mapState(['signatoryData']),
+  computed: {
+    signatoryDataCSVURL() {
+      return `${this.apiURL}/signatories.csv`
+    },...mapState(['signatoryData', 'apiURL'])
+  },
   async mounted() {
     await this.$store.dispatch('loadSignatoryData')
     this.busy = false
