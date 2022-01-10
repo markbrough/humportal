@@ -49,7 +49,8 @@ export default {
         'faTimesCircle',
         'faCheck',
         'faTimes',
-        'faInfoCircle'
+        'faInfoCircle',
+        'faDownload'
       ],
     }
   },
