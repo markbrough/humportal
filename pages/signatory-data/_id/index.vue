@@ -109,8 +109,8 @@
           <b-col md="6">
             <h4>Traceability elements <span v-b-tooltip.hover :title="titles.traceability"><font-awesome-icon :icon="['fas', 'info-circle']" /></span></h4>
             <SummaryPieChart
-              :labels="['Transactions without traceability', 'Transactions with traceability']"
-              :data="[this.traceableTransactions-this.traceability, this.traceability]"></SummaryPieChart>
+              :labels="['Activities without traceability', 'Activities with traceability']"
+              :data="[this.activities-this.traceability, this.traceability]"></SummaryPieChart>
           </b-col>
         </b-row>
       </template>
@@ -146,7 +146,7 @@ export default {
         earmarking: "Whether the transaction states any information about earmarking (using the aid-type vocabularies 2 or 3).",
         cash: "Whether the transaction states any information about cash (using the aid-type vocabulary 4).",
         pledges: "Whether the transaction is a pledge (transaction types 12 or 13).",
-        traceability: "Whether the transaction contains the provider organisation’s activity identifier."
+        traceability: "Whether any transaction for an activity contains the provider organisation’s activity identifier."
       }
     }
   },
