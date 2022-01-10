@@ -81,7 +81,7 @@
             <hr />
             <h3>IATI Standard v2.03 elements</h3>
             <p class="lead">
-              The below charts show summaries by the total number of transactions.
+              The below charts show summaries by the total number of transactions or activities.
             </p>
           </b-col>
         </b-row>
