@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import axios from 'axios'
 
-const baseURL = 'https://humportal.org/'
-const apiURL = 'https://brough.io/humportal-data/'
+const baseURL = 'https://humportal.org'
+const apiURL = 'https://brough.io/humportal-data'
 const analyticsURL = 'https://stats.codeforiati.org'
 
 export const state = () => ({
@@ -13,7 +13,8 @@ export const state = () => ({
   },
   signatoryData: [],
   signatoryProgressData: [],
-  analyticsURL: analyticsURL
+  analyticsURL: analyticsURL,
+  apiURL: apiURL
 })
 
 export const mutations = {
